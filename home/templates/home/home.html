@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load one %}
+
+{% block title %}
+    <title>home</title>
+{% endblock  %}
+
+{% block content %}
+    {% comment %} {% for car in cars %}
+        <p>{{ car.car }}</p>
+    {% endfor %} {% endcomment %}
+
+    {% comment %} {% for car in cars %}
+        <p><a href={% url "homes:details_car" car.pk  car.name car.owner car.year car.slug %}>{{ car.name | text_up }}</a></p>
+    {% endfor %} {% endcomment %}
+    {% comment %} <a href='{% url "homes:create_person" %}' class='btn btn-primary'>create person</a> {% endcomment %}
+    {% if request.user.is_authenticated %}
+        <p class='bg-info p-3'>home</p>
+        {% comment %} <a href='{% url "homes:create_car" %}' class='btn btn-info'>create car</a> {% endcomment %}
+    {% endif %}
+{% endblock  %}

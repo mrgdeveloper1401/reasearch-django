@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% load tags %}
+
+{% block title %}{% endblock title %}
+
+{% block content %}
+    <p>{{ car.name }}</p>
+    <p>{{ car.owner }}</p>
+    <p>{{ car.year }}</p>
+    <a href='{% url "homes:delete_car" car.pk %}' class='btn btn-primary'>delete car</a>
+    <a href='{% url "homes:update_car" car.pk %}' class='btn btn-primary'>update car</a>
+
+{% endblock  %}
