@@ -9,17 +9,17 @@ from django.urls import reverse_lazy
 #     next_page = reverse_lazy('homes:home')
     
     
-class LogoutUserView(auth_views.LogoutView):
-    next_page = reverse_lazy('accounts:login')
+# class LogoutUserView(auth_views.LogoutView):
+#     next_page = reverse_lazy('accounts:login')
 
 
-class UserLoginView(View):
-    template_name = ''
-    form_class = ''
-    def get(self, request, *args, **kwargs):
-        pass
+# class UserLoginView(View):
+#     template_name = ''
+#     form_class = ''
+#     def get(self, request, *args, **kwargs):
+#         pass
     
-    def post(self, request, *args, **kwargs):
-        pass
+#     def post(self, request, *args, **kwargs):
+#         pass
     
     
