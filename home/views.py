@@ -21,6 +21,7 @@ class HomeView(View):
 #     # http_method_names = ['post']
     templated_name = 'home/home.html'
     def get(self, request: Request):
+        # print(request.path)
         return render(request, self.templated_name)
 
     # def get(self, request: Request):

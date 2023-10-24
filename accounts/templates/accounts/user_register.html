@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
 {% block title %}
-    <title>login</title>
+    <title>register</title>
 {% endblock  %}
 
 {% block content %}
-    <form method='post' novalidate action=''>
+    <form action='' method='post'>
         {% csrf_token %}
         {{ form.as_p }}
-        <input type='submit' value='login'>
+        <input type='submit' value='create account'>
     </form>
 {% endblock  %}

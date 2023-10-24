@@ -24,7 +24,7 @@
                 <li><a class="dropdown-item" href="{% url "accounts:logout" %}">logout</a></li>
               {% else %}
                 <li><a class="dropdown-item" href="{% url "accounts:login" %}">login</a></li>
-                <li><a class="dropdown-item" href="#">logup</a></li>
+                <li><a class="dropdown-item" href="{% url "accounts:register" %}">logup</a></li>
 
               {% endif %}
             </ul>
