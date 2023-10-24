@@ -1,29 +1,29 @@
-from django.contrib import admin
-from .models import Article, Courses, Onepart, Comment
-from .form import NotNoneArticleForm
+# from django.contrib import admin
+# from .models import Article, Courses, Onepart
+# from .form import NotNoneArticleForm
 
 
-@admin.register(Courses)
-class CoursesAdmin(admin.ModelAdmin):
-    list_display = ('title', 'lenght')
+# @admin.register(Courses)
+# class CoursesAdmin(admin.ModelAdmin):
+#     list_display = ('title', 'lenght')
     
     
 
-@admin.register(Onepart)
-class OnepartAdmin(admin.ModelAdmin):
-    list_display = ('title', 'description')
+# @admin.register(Onepart)
+# class OnepartAdmin(admin.ModelAdmin):
+#     list_display = ('title', 'description')
     
     
 
-@admin.register(Article)
-class ArticleAdmin(admin.ModelAdmin):
-    form = NotNoneArticleForm
-    list_display = ('title', 'body')
+# @admin.register(Article)
+# class ArticleAdmin(admin.ModelAdmin):
+#     form = NotNoneArticleForm
+#     list_display = ('title', 'body')
     
-    def clean(self):
-        title = self.cleaned_data.get('title')
-        if title == 'None':
-            raise 
+#     def clean(self):
+#         title = self.cleaned_data.get('title')
+#         if title == 'None':
+#             raise 
 
 
-admin.site.register(Comment)
+# admin.site.register(Comment)
