@@ -51,19 +51,19 @@ class MySkillModelAdmin(admin.ModelAdmin):
     
 
 
-@admin.register(Person)
-class PersonAdmin(admin.ModelAdmin):
-    list_display = ('name', 'id')
+# @admin.register(Person)
+# class PersonAdmin(admin.ModelAdmin):
+#     list_display = ('name', 'id')
     
 
-@admin.register(Group)
-class GroupAdmin(admin.ModelAdmin):
-    list_display = ('name', 'members_str', 'id')
+# @admin.register(Group)
+# class GroupAdmin(admin.ModelAdmin):
+#     list_display = ('name', 'members_str', 'id')
     
-    def members_str(self, obj):
-        return ', '.join([i.name for i in obj.members.all()])
+#     def members_str(self, obj):
+#         return ', '.join([i.name for i in obj.members.all()])
     
     
-@admin.register(Membership)
-class MembershipAdmin(admin.ModelAdmin):
-    list_display = ('peson', 'group', 'date_joined', 'id')
+# @admin.register(Membership)
+# class MembershipAdmin(admin.ModelAdmin):
+#     list_display = ('peson', 'group', 'date_joined', 'id')

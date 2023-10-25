@@ -1,5 +1,8 @@
+from typing import Any
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django.http.request import HttpRequest
+from django.http.response import HttpResponse
 from django.utils.translation import gettext_lazy as _
 from .models import User
 from .forms import UserChangeForms, UserCreationForms

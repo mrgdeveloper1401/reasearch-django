@@ -63,6 +63,7 @@ from django.utils.translation import gettext_lazy as _
 
 class MySkillModel(models.Model):
     name = models.CharField(_('Name'), max_length=100)
+    image = models.ImageField(_('Image'), upload_to='skills/%Y/%M/%D', blank=True)
     create_at = models.DateTimeField(_("create skill"), blank=True, null=True)
     
     
