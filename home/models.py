@@ -1,5 +1,5 @@
 from django.db import models
-from .managers import PersionAbove
+# from .managers import PersionAbove
 from django.utils.translation import gettext_lazy as _
 
 
@@ -70,3 +70,24 @@ class MySkillModel(models.Model):
         verbose_name = _("skill")
         verbose_name_plural = _("skills")
         db_table = "skill"
+        
+
+class Person(models.Model):
+    name= models.CharField(_("name"), max_length=100)
+    
+    def __str__(self):
+        return self.name
+
+class Group(models.Model):
+    name = models.CharField(_("name"), max_length=100)
+    members = models.ManyToManyField(Person, blank=True, through='Membership')
+    
+    def __str__(self):
+        return self.name
+    
+    
+class Membership(models.Model):
+    peson = models.ForeignKey(Person, on_delete=models.CASCADE, related_name='persons')
+    group = models.ForeignKey(Group, on_delete=models.CASCADE, related_name='groups')
+    date_joined = models.DateTimeField(_("date_joined"),blank=True, null=True)
+    
