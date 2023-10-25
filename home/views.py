@@ -15,14 +15,25 @@ from django.views import View
 # from django.contrib import messages
 # from django.utils.text import slugify
 # from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import MySkillModel
+from .form import Serachforms
 
 
 class HomeView(View):
+    form_class = Serachforms
 #     # http_method_names = ['post']
     templated_name = 'home/home.html'
     def get(self, request: Request):
-        # print(request.path)
-        return render(request, self.templated_name)
+        all_skills = MySkillModel.objects.all()
+        form = self.form_class(request.GET)
+        if form.is_valid():
+            search = form.cleaned_data.get('search')
+            all_skills = MySkillModel.objects.filter(name__icontains=search)
+        context = {
+            'all_skills': all_skills,
+            'search_form': self.form_class,
+        }
+        return render(request, self.templated_name, context)
 
     # def get(self, request: Request):
     #     return render(request, self.templated_name)

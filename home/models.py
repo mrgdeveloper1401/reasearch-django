@@ -34,16 +34,16 @@ from django.utils.translation import gettext_lazy as _
     
     
     
-class Person(models.Model):
-    full_name = models.CharField(max_length=100)
-    age = models.PositiveSmallIntegerField()
-    bio = models.CharField(max_length=255)
-    create_person = models.DateTimeField(auto_now_add=True)
+# class Person(models.Model):
+#     full_name = models.CharField(max_length=100)
+#     age = models.PositiveSmallIntegerField()
+#     bio = models.CharField(max_length=255)
+#     create_person = models.DateTimeField(auto_now_add=True)
     
-    objects = PersionAbove()
+#     objects = PersionAbove()
     
-    def __str__(self):
-        return f'{self.full_name} - {self.age}'
+#     def __str__(self):
+#         return f'{self.full_name} - {self.age}'
     
     # def is_above(self):
     #     if self.age > 18:
@@ -59,3 +59,14 @@ class Person(models.Model):
     
 #     def str(self):
 #         return self.title
+
+
+class MySkillModel(models.Model):
+    name = models.CharField(_('Name'), max_length=100)
+    create_at = models.DateTimeField(_("create skill"), blank=True, null=True)
+    
+    
+    class Meta:
+        verbose_name = _("skill")
+        verbose_name_plural = _("skills")
+        db_table = "skill"

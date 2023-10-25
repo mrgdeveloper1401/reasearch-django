@@ -7,6 +7,10 @@
 {% endblock  %}
 
 {% block content %}
+    <form>
+        {{ search_form }}
+        <input type='submit' value='search'>
+    </form>
     {% comment %} {% for car in cars %}
         <p>{{ car.car }}</p>
     {% endfor %} {% endcomment %}
@@ -19,4 +23,8 @@
         <p class='bg-info p-3'>home</p>
         {% comment %} <a href='{% url "homes:create_car" %}' class='btn btn-info'>create car</a> {% endcomment %}
     {% endif %}
+
+    {% for skill in all_skills  %}
+        <p>{{ skill.name }}</p>
+    {% endfor %}
 {% endblock  %}

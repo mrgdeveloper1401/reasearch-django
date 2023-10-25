@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Person
+# from .models import Person
+from .models import MySkillModel
 # from .form import TodoAdminForm
 
 
@@ -25,20 +26,24 @@ from .models import Person
 
     
     
-@admin.register(Person)
-class PersonAdmin(admin.ModelAdmin):
-    list_display = ('full_name', 'age', 'is_above', 'bio', 'create_person', 'id')
+# @admin.register(Person)
+# class PersonAdmin(admin.ModelAdmin):
+#     list_display = ('full_name', 'age', 'is_above', 'bio', 'create_person', 'id')
     
     
-    def is_above(self, obj):
-        if obj.age > 18:
-            return True
-        return False
+#     def is_above(self, obj):
+#         if obj.age > 18:
+#             return True
+#         return False
     
-    is_above.boolean = True
+#     is_above.boolean = True
 
 # @admin.register(Todo)
 # class TodoAdmin(admin.ModelAdmin):
 #     form = TodoAdminForm
 #     list_display = ('title', 'body', 'created', 'id')
     
+    
+@admin.register(MySkillModel)
+class MySkillModelAdmin(admin.ModelAdmin):
+    list_display = ('name', 'create_at', 'id')

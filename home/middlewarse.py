@@ -3,7 +3,7 @@ from django.contrib import messages
 
 
 LOGIN_EXEMPT_URL = [
-    # '/',
+    '/',
     '/accounts/login/',
     '/accounts/register/',
 ]
