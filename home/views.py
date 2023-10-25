@@ -17,6 +17,10 @@ from django.views import View
 # from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import MySkillModel
 from .form import Serachforms
+# from django.contrib.postgres.search import SearchVector
+from django.contrib.postgres.search import TrigramSimilarity
+from django.db.models.functions import Greatest
+from django.db.models import Q
 
 
 class HomeView(View):
@@ -27,8 +31,8 @@ class HomeView(View):
         all_skills = MySkillModel.objects.all()
         form = self.form_class(request.GET)
         if form.is_valid():
-            search = form.cleaned_data.get('search')
-            all_skills = MySkillModel.objects.filter(name__icontains=search)
+            cd = form.cleaned_data.get('search')
+            all_skills = MySkillModel.objects.filter(Q(name__icontains=cd) | Q(create_at__icontains=cd))
         context = {
             'all_skills': all_skills,
             'search_form': self.form_class,
